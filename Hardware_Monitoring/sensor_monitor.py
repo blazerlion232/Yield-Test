@@ -3,9 +3,9 @@ from sensor_simulator import data_gen
 class monitor():
 
     def __init__(self):
-        tdata = data_gen.genTemp()
-        vdata = data_gen.genVolt()
-        fdata = data_gen.genFanSpd()
+        self.tdata = data_gen.genTemp()
+        self.vdata = data_gen.genVolt() 
+        self.fdata = data_gen.genFanSpd()
 
 
     def tFault(self,tdata):
@@ -71,7 +71,7 @@ class monitor():
         f = self.fFault(self.fdata)
         tot = self.count(self.tdata)
         totErrors = self.totErrors(self.tdata,self.vdata,self.fdata)
-        sysRisk = self.sysAtRisk(self, tot, totErrors)
+        sysRisk = self.sysAtRisk(tot, totErrors)
         return self.findings(tot, totErrors, sysRisk, t, v, f)
 
 class main():
