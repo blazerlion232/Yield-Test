@@ -7,7 +7,7 @@ class data_gen():
         return temp_data
 
     def genVolt():
-        cpuvol_data = random.randint(1,size=(1000))
+        cpuvol_data = [random.uniform(0, 1) for n in range(1000)]
         return cpuvol_data
 
     def genFanSpd():
